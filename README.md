@@ -1,6 +1,9 @@
 # F5 BIG-IP Security Cheatsheet
 
-This document describes common misconfigurations of F5 Networks BIG-IP systems and their elimination. Some settings can be different for different BIG-IP versions.  
+This document describes common misconfigurations of F5 Networks BIG-IP systems and their elimination. Some settings can be different for different BIG-IP versions.
+
+## Slides
+1. [F5 BIG-IP Misconfigurations (Zero Nights 2016).](f5-bigip-zn2016.pdf)
 
 ## Table of Contents
 - [Summary](#summary)
