@@ -26,6 +26,7 @@ This document describes common misconfigurations of F5 Networks BIG-IP systems a
   - [Inactive Administrative Session Timeout](#inactive-administrative-session-timeout)
   - [Connection Settings](#connection-settings)
   - [Password Policy for Administrative Users](#password-policy-for-administrative-user)
+- [Vulnerability Search](#vulnerability-search)
  
 ## Summary
 The BIG-IP family of products offers the application intelligence network managers need to ensure applications are fast, secure and available.
@@ -529,6 +530,12 @@ It is recommended to require BIG-IP system users to create strong passwords and 
 4. For the `Minimum Length` and `Required Characters` settings, configure the default values, according to your organization's internal security requirements.
 5. In the `Maximum Login Failures` field, specify a number. If the user fails to log in the specified number of times, the user is locked out of the system. Therefore, F5 Networks recommends that you specify a value that allows for a reasonable number of login failures before user lockout.
 6. Click `Update`.
+
+## Vulnerability Search
+
+[Vulners.com](https://vulners.com) service can be used for search of known vulnerabilities of the BIG-IP systems. 
+The base request is `affectedSoftware.name:"BigIP" or affectedSoftware.name:"BIG-IP"`.
+You can find additional information [here](https://vulners.com/#help).
 
 ## References
 * [F5 Networks Official Site] (https://f5.com/products/big-ip)
