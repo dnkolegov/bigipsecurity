@@ -533,8 +533,12 @@ It is recommended to require BIG-IP system users to create strong passwords and 
 
 ## Vulnerability Search
 
-[Vulners.com](https://vulners.com) service can be used for search of known vulnerabilities of the BIG-IP systems. 
-The base request is `affectedSoftware.name:"BigIP" or affectedSoftware.name:"BIG-IP"`.
+[Vulners.com](https://vulners.com) service can be used to search known vulnerabilities of the BIG-IP systems. 
+
+The examples of requests:
+- `affectedSoftware.name:"BigIP" or affectedSoftware.name:"BIG-IP"`
+- `type:F5`
+
 You can find additional information [here](https://vulners.com/#help).
 
 ## References
