@@ -91,9 +91,9 @@ Set-Cookie: BIGipServerOldOWASSL=110536896.20480.0000; path=/
 Here we can see that backend's pool has the meaningful name OldOWASSL and includes backend server 192.168.150.6:80
 
 #### Tools
-* [Metasploit Framework Module] (http://www.rapid7.com/db/modules/auxiliary/gather/f5_bigip_cookie_disclosure)
-* [Burp Suite Extension] (http://professionallyevil.com/subdomains/extensions/Burp-F5Cookie-Extension.py.zip)
-* [BeEF Module] (https://github.com/beefproject/beef/tree/master/modules/network/ADC/f5_bigip_cookie_disclosure)
+* [Metasploit Framework Module](http://www.rapid7.com/db/modules/auxiliary/gather/f5_bigip_cookie_disclosure)
+* [Burp Suite Extension](http://professionallyevil.com/subdomains/extensions/Burp-F5Cookie-Extension.py.zip)
+* [BeEF Module](https://github.com/beefproject/beef/tree/master/modules/network/ADC/f5_bigip_cookie_disclosure)
 
 #### Remediation
 
@@ -184,7 +184,7 @@ Either the TMM switch interfaces or the MGMT interface can provide administrativ
 The TMM switch interfaces are the interfaces that the BIG-IP system uses to send and receive load-balanced traffic.
 The MGMT interface is the interface to perform system management functions via browser-based or command line configuration tools.
 The MGMT interface is intended for administrative traffic and can not be used for load-balanced traffic.
-It is recommended to connect MGMT interface to a secure, management-only network, such as one that uses an [RFC 1918] (https://tools.ietf.org/html/rfc1918) private IP address space.
+It is recommended to connect MGMT interface to a secure, management-only network, such as one that uses an [RFC 1918](https://tools.ietf.org/html/rfc1918) private IP address space.
 Otherwise an attacker can identify BIG-IP systems in your network and then [attack them](https://www.blackhat.com/html/webcast/07182013-hacking-appliances-ironic-exploits-in-security-products.html) via management plane.
 
 #### Testing
@@ -197,14 +197,14 @@ Otherwise an attacker can identify BIG-IP systems in your network and then [atta
   * WWW-Authenticate: Basic realm=BIG-IP
   * BigIP
   * BIG-IP
-3. Run [Metasploit Framework module] (http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
+3. Run [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
 
 #### Tools
-* [Metasploit Framework module] (http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
+* [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
 
 #### Remediation
 
-Connect MGMT interface to special management network only. Management network should operates under private ([RFC 1918] (https://tools.ietf.org/html/rfc1918)) IP-address space that is completely separate from the production network.
+Connect MGMT interface to special management network only. Management network should operates under private ([RFC 1918](https://tools.ietf.org/html/rfc1918)) IP-address space that is completely separate from the production network.
 The most secure configuration is to set "Allow None" on all Self IPs and only administer a BIG-IP using the Management Port.
 Setting "Allow None" on each Self IP will block all access to BIG-IP's administrative IP addresses except for the Management Port. Access to individual ports can be selectively enabled, but this is not recommended in a highly secure environment.
 
@@ -215,7 +215,7 @@ To deny all connections on the self IP addresses using the Configuration utility
 3. For all self IPs set `Port Lockdown` option to `Allow None`.
 4. Click `Update`.
 
-If you need to administer BIG-IP using Self IPs you should also use private [RFC 1918] (https://tools.ietf.org/html/rfc1918) IP-address space.
+If you need to administer BIG-IP using Self IPs you should also use private [RFC 1918](https://tools.ietf.org/html/rfc1918) IP-address space.
 The most unsecure configuation is to use routable IP-addresses on your Self-IPs. In this case it is highly recommended to lock down access to the networks that need it. To lock-down SSH and the GUI for a Self IP from a specific network.
 For examle, to permit access from network 192.268.2.0/24 it is necessary to perform the following commands in TMSH:
  ```
@@ -231,7 +231,7 @@ save /sys config
 Host header in HTTP requests is not always validated by BIG-IP systems by default.
 This validation depends on enabled modules, features and their configuration: for example, BIG-IP system in APM portal access mode performs a base sanitization of HTTP host header against XSS attacks.
 In most cases BIG-IP systems process HTTP requests with arbitrary `Host` header.
-This weakness can lead to vulnerabilities which can be used in [different attacks based on HTTP Host header] (http://www.acunetix.com/blog/articles/automated-detection-of-host-header-attacks). For example, [DNS Rebinding] (http://www.ptsecurity.com/download/DNS-rebinding.pdf), [XSS](https://www.mehmetince.net/concrete5-reflected-xss-vulnerability-via-http-header-host-parameter), [password reset poisoning] (http://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.htm), etc.  
+This weakness can lead to vulnerabilities which can be used in [different attacks based on HTTP Host header](http://www.acunetix.com/blog/articles/automated-detection-of-host-header-attacks). For example, [DNS Rebinding](http://www.ptsecurity.com/download/DNS-rebinding.pdf), [XSS](https://www.mehmetince.net/concrete5-reflected-xss-vulnerability-via-http-header-host-parameter), [password reset poisoning](http://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.htm), etc.  
 
 #### Testing
 
