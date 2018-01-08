@@ -150,7 +150,7 @@ The following example shows a GET request to BIG-IP and a response containing Se
  Set-Cookie: MRHSHint=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/
  ```
 #### Tools
-* [Metasploit Framework module] (http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_bigip_virtual_server)
+* [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_bigip_virtual_server)
 
 #### Remediation
 
@@ -176,7 +176,7 @@ save /sys config
 
 #### Description
 If an attacker can access to BIG-IP management interface from Internet  this can lead to different attacks on BIG-IP administrative tools, unauthorized access or mass enumeration of BIG-IP systems using search engines. 
-The BIG-IP system uses the following [two network connection entry points] (https://support.f5.com/kb/en-us/solutions/public/7000/300/sol7312.html):
+The BIG-IP system uses the following [two network connection entry points](https://support.f5.com/kb/en-us/solutions/public/7000/300/sol7312.html):
 * TMM switch interfaces
 * Management interface (MGMT)
 
@@ -318,7 +318,7 @@ modify ltm virtual <virtual_server> policies add { _http_host_validation }
 Web-based components of BIG-IP systems, such as APM, use different HTML pages with default values that can be used for mass enumeration.
 
 #### Testing
-Try to use the following search queries with BIG-IP keyword in [Google] (https://www.google.com/):
+Try to use the following search queries with BIG-IP keyword in [Google](https://www.google.com/):
 * intitle:"BIG-IP logout page"
 * "Thank you for using BIG-IP."
 
@@ -542,10 +542,10 @@ The examples of requests:
 You can find additional information [here](https://vulners.com/#help).
 
 ## References
-* [F5 Networks Official Site] (https://f5.com/products/big-ip)
+* [F5 Networks Official Site](https://f5.com/products/big-ip)
 * [BIG-IP Modules Datasheet](https://www.f5.com/pdf/products/big-ip-modules-ds.pdf)
-* [David Holmes. 10 Settings to Lock Down your BIG-IP] (https://devcentral.f5.com/articles/10-settings-to-lock-down-your-big-ip)
+* [David Holmes. 10 Settings to Lock Down your BIG-IP](https://devcentral.f5.com/articles/10-settings-to-lock-down-your-big-ip)
 * [SOL13092: Overview of securing access to the BIG-IP system](https://support.f5.com/kb/en-us/solutions/public/13000/000/sol13092.html)
 * [SOL13309: Restricting access to the Configuration utility by source IP address](https://support.f5.com/kb/en-us/solutions/public/13000/300/sol13309.html)
 * [F5 TLS & SSL Practices](http://www.slideshare.net/bamchenry/f5-tls-ssl-practices)
-* [OWASP Secure Configuration Guide: BigIP] (https://www.owasp.org/index.php/SCG_D_BIGIP)
+* [OWASP Secure Configuration Guide: BigIP](https://www.owasp.org/index.php/SCG_D_BIGIP)
