@@ -35,14 +35,14 @@ Together, BIG-IP's powerful platforms, advanced modules, and centralized managem
 
 BIG-IP devices work on a modular system, which enables to add new functions as necessary to quickly adapt to changing application and business needs.
 The following modules are currently available for the BIG-IP systems:
-* Application Acceleration Manager (AAM)
-* Advanced Firewall Manager (AFM)
-* Access Policy Manager (APM)
-* Application Security Manger (ASM)
-* Global Traffic Manager (GTM)
-* Link Controller (LC)
-* Local Traffic Manager (LTM)
-* Protocol Security Module (PSM)
+  * Application Acceleration Manager (AAM)
+  * Advanced Firewall Manager (AFM)
+  * Access Policy Manager (APM)
+  * Application Security Manger (ASM)
+  * Global Traffic Manager (GTM)
+  * Link Controller (LC)
+  * Local Traffic Manager (LTM)
+  * Protocol Security Module (PSM)
 
 ## Common Misconfigurations
 
@@ -190,13 +190,13 @@ Otherwise an attacker can identify BIG-IP systems in your network and then [atta
 #### Testing
 
 1. Try to use the following "googledorks":
-  * inurl:"tmui/login.jsp"
-  * intitle:"BIG-IP" inurl:"tmui"
+    * inurl:"tmui/login.jsp"
+    * intitle:"BIG-IP" inurl:"tmui"
 2. Try to use the following queries for [Shodan](https://www.shodanhq.com/)
-  * F5-Login-Page
-  * WWW-Authenticate: Basic realm=BIG-IP
-  * BigIP
-  * BIG-IP
+    * F5-Login-Page
+    * WWW-Authenticate: Basic realm=BIG-IP
+    * BigIP
+    * BIG-IP
 3. Run [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
 
 #### Tools
@@ -251,25 +251,25 @@ The following settings ensures that user will be redirected to `/vdesk/hangup.ph
 3. Click `Create`. Input `_host_header_validation` in the `Name` field. Add `http` to Requires box.
 4. Click `Add` in Rules section.
 5. Add the following Condition:
-  * Operand: `http-host`
-  * Event: `request`
-  * Selector: `host`
-  * Negotiate: `not`
-  * Condition: `equals`
-  * Values: `<dns_name_1>`, `<dns_name_2>`, `<dns_name_3>`, etc
+    * Operand: `http-host`
+    * Event: `request`
+    * Selector: `host`
+    * Negotiate: `not`
+    * Condition: `equals`
+    * Values: `<dns_name_1>`, `<dns_name_2>`, `<dns_name_3>`, etc
 6. Click `Add`.
 7. Add the following Rule:
-  * Target: `http-uri`
-  * Event: `request`
-  * Action: `replace`
-  * Parameters
-    * Name: `path`
-    * Value: `/vdesk/hangup.php3`
+    * Target: `http-uri`
+    * Event: `request`
+    * Action: `replace`
+    * Parameters
+      * Name: `path`
+      * Value: `/vdesk/hangup.php3`
 8. Go to `Local Traffic > Virtual Servers`. Choose a virtual server that should be protected by CPM and click `Resources`.  9. Click `Manage` in `Policies` section and add `_http_host_validation` to `Enabled` box.
 10. Click `Finished`.
 
 ##### Configuring host validation in CPM using TMSH
-1. Prepare the following CPM config for host validation
+1. Prepare the following CPM config for host validation:
 
  ```
 ltm policy _http_host_validation {
