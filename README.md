@@ -27,6 +27,7 @@ This document describes common misconfigurations of F5 Networks BIG-IP systems a
   - [Connection Settings](#connection-settings)
   - [Password Policy for Administrative Users](#password-policy-for-administrative-user)
 - [Vulnerability Search](#vulnerability-search)
+- [iRules Injection](#irules-injection)
  
 ## Summary
 The BIG-IP family of products offers the application intelligence network managers need to ensure applications are fast, secure and available.
@@ -540,6 +541,14 @@ The examples of requests:
 - `type:F5`
 
 You can find additional information [here](https://vulners.com/#help).
+
+## iRules Injection
+
+BIG-IP supports iRules - a subset of rules written in TCL. An attacker can inject iRule code in to a request and force a BIG-IP to execute remote code, sniff connections or scan internal networks. An attacker that successfully exploits iRule injections can gain a foothold in the device memory, break out of the TCL interpreter and cause severe damage without leaving a trace in logging facilities.
+
+You can find additional information on the following resources:
+- [Command Injection in iRules](https://www.blackhat.com/us-19/briefings/schedule/index.html#command-injection-in-f-irules-16194)
+- [K15650046: Tcl code injection security exposure](https://support.f5.com/csp/article/K15650046)
 
 ## References
 * [F5 Networks Official Site](https://f5.com/products/big-ip)
