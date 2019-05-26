@@ -191,14 +191,19 @@ Otherwise an attacker can identify BIG-IP systems in your network and then [atta
 #### Testing
 
 1. Try to use the following "googledorks":
-    * inurl:"tmui/login.jsp"
-    * intitle:"BIG-IP" inurl:"tmui"
-2. Try to use the following queries for [Shodan](https://www.shodanhq.com/)
-    * F5-Login-Page
-    * WWW-Authenticate: Basic realm=BIG-IP
-    * BigIP
-    * BIG-IP
-3. Run [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
+    * `inurl:"tmui/login.jsp"`
+    * `intitle:"BIG-IP" inurl:"tmui"`
+2. Try to use the following queries for [Shodan](https://www.shodanhq.com/):
+    * `F5-Login-Page`
+    * `WWW-Authenticate: Basic realm=BIG-IP`
+    * `BigIP`
+    * `BIG-IP`
+    * `http.favicon.hash:-335242539`
+    * `http.title:"BIG-IP&reg;- Redirect"`
+3. Try to use the following queries for [Censys](https://censys.io/):
+    * `443.https.get.body_sha256:5d78eb6fa93b995f9a39f90b6fb32f016e80dbcda8eb71a17994678692585ee5`
+    * `443.https.get.title:"BIG-IP&reg;- Redirect"`
+4. Run [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
 
 #### Tools
 * [Metasploit Framework module](http://www.rapid7.com/db/modules/auxiliary/scanner/http/f5_mgmt_scanner)
