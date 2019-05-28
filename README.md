@@ -551,9 +551,14 @@ You can find additional information [here](https://vulners.com/#help).
 
 BIG-IP supports iRules - a subset of rules written in TCL. An attacker can inject iRule code in to a request and force a BIG-IP to execute remote code, sniff connections or scan internal networks. An attacker that successfully exploits iRule injections can gain a foothold in the device memory, break out of the TCL interpreter and cause severe damage without leaving a trace in logging facilities.
 
+The following tools can be used for iRules code security testing:
+- [testtcl](https://github.com/landro/TesTcl)
+- [tclscan](https://github.com/kugg/tclscan)
+
 You can find additional information on the following resources:
 - [Command Injection in iRules](https://www.blackhat.com/us-19/briefings/schedule/index.html#command-injection-in-f-irules-16194)
 - [K15650046: Tcl code injection security exposure](https://support.f5.com/csp/article/K15650046)
+- [Christoffer Jerkeby. Load Balancer with RCE, Hacking F5. SecurityFest 2019](https://www.youtube.com/watch?time_continue=1876&v=2f15ZOIU7ks)
 
 ## References
 * [F5 Networks Official Site](https://f5.com/products/big-ip)
