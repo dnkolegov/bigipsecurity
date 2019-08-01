@@ -27,6 +27,7 @@ This document describes common misconfigurations of F5 Networks BIG-IP systems a
   - [Connection Settings](#connection-settings)
   - [Password Policy for Administrative Users](#password-policy-for-administrative-user)
 - [Vulnerability Search](#vulnerability-search)
+- [ASM Misconfigurations](#asm-misconfigurations)
 - [iRules Injection](#irules-injection)
  
 ## Summary
@@ -35,7 +36,7 @@ All BIG-IP products share a common underlying architecture, F5's Traffic Managem
 Together, BIG-IP's powerful platforms, advanced modules, and centralized management system make up the most comprehensive set of application delivery tools in the industry.
 
 BIG-IP devices work on a modular system, which enables to add new functions as necessary to quickly adapt to changing application and business needs.
-The following modules are currently available for the BIG-IP systems:
+The following modules are currently available on BIG-IP systems:
   * Application Acceleration Manager (AAM)
   * Advanced Firewall Manager (AFM)
   * Access Policy Manager (APM)
@@ -546,6 +547,37 @@ The examples of requests:
 - `type:F5`
 
 You can find additional information [here](https://vulners.com/#help).
+
+## ASM Misconfigurations
+
+BIG-IP Application Security Manager (ASM) is a layer 7 web application firewall (WAF) available on F5's BIG-IP platforms.
+ASM has many security features that should be configured manually to provide more granular access control and attack detection. A security engineer can add own attack signatures, permitted or denied URLs, parameters, file types, etc.
+
+At the same time, some of these mechanisms have badly designed UI that may mislead a security engineer. As a result, the ASM will not enforce the suggested security policy and an attacker will be able to bypass enabled security mechanisms.
+
+### Disalloweed URLs
+
+This mechanism is used to create, edit or display URLs not allowed by the security policy. The UI allows configuring HTTP or HTTPS protocol and explicit or wildcard URL. The issue is UI does not have options related to case-sensitivity settings, but the implementation enforces case sensitive.
+
+For example, if we add "/admin" URL to a disallowed URLs list then `https://ex.com/admin` will be denied, but `https://ex.com/aDmin` permitted.
+
+It turns out, that case-sensitivity is a global setting defined when a security policy is created. The default option is case sensitive. So the security policy treats file types, URLs, and parameters as case-sensitive.
+
+It is recommended to check disallowed URLs and the security policy settings.
+
+### Attack Signatures
+
+It is possible to add custom signatures adopted to the web application. 
+
+The following elements are used to define a rule:
+ - matched element
+ - matched criteria
+ - keyword
+ - match case flag
+
+Matched criteria can be specified via regular expressions or a "substring expression". The misleading option is the "match case". It turns out, that this option is applied to substring mechanism only. To control case sensitivity you must use "match case" flag for a substring-based rule, but "i"-flag for a regex-based rule. And if a rule involved regexes and substrings you must use both.
+
+It is recommended to check that regex-based rule have "i" flags, where necessary.
 
 ## iRules Injection
 
